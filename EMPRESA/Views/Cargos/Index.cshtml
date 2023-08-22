@@ -1,0 +1,34 @@
+﻿@model IEnumerable<EMPRESA.Models.Cargo>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>CARGOS EMPRESA</h1>
+
+<p>
+    <a class="btn btn-success btn-sm" asp-action="Create">Crear Nuevo</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Descripcion)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Descripcion)
+            </td>
+            <td>
+                    <a class ="btn btn-primary bnt-sm" asp-action="Edit" asp-route-id="@item.IdCargo">Editar</a>                 
+                    <a class="btn btn-danger bnt-sm" asp-action="Delete" asp-route-id="@item.IdCargo">Eliminar</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
